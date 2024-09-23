@@ -69,7 +69,7 @@ func SplitFileBinary(file, outDir string, count int) []string {
 	files := make([]string, 0, count)
 
 	for i := 0; i < count; i++ {
-		outFile := fmt.Sprintf("%s.part%d", outDir+"/"+baseName, i)
+		outFile := fmt.Sprintf("%s.part%d", filepath.Join(outDir, baseName), i)
 		files = append(files, outFile)
 		fout, err := os.Create(outFile)
 		if err != nil {
